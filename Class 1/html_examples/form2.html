@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form Demo</title>
+	
+</head>
+
+<body>
+	<form action="gohere.php" method='get'> <!-- the difference between the post and get is that post is private but the get is public(in the query string) -->
+	<label>Name:</label> <input type="text" name="name" id="the_name" required='1'><br />
+	<br />
+	Age: <input type = "number">
+	<br />
+	Fav color (pick one): 
+		<input type="radio" name="color" value="blue">Blue
+		<input type="radio" name="color" value="red">Red
+		<input type="radio" name="color" value="purple">Purple
+	<br />
+	Fav snacks (pick all that apply):
+		<input type="checkbox" name="chkPotChip" value="potato_chip">Potato Chips
+		<input type="checkbox" name="chkPretzel" value="pretzels">Pretzels
+		<input type="checkbox" name="chkPopcorn" value="popcorn">Popcorn
+	<br />	
+	<input type = "submit" value = "Submit it now">
+	
+	
+		
+	
+	
+	</form>
+</body>
+</html>
