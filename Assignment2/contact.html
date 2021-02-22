@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TUTUTU | Contact</title>
+<link rel="stylesheet" href="style.css">
+<style>
+	#bordered-form {
+		border: 5px solid #000; 
+		background-color: #DFDDDD;
+		width:100%;
+		padding: 1%;
+	}
+	
+	#contact {
+		background-image:url('image/bg.png');
+	}
+</style>
+</head>
+
+<body id="contact">
+	<div>
+		<div class="left-col left">
+			<img src="image/TUTUTU.png" alt="TUTUTU Logo" class="logo" style="margin=20px"/>
+		</div>
+			
+		<div class="nav right-col">
+			<ul>
+				<li><a href="home.html" target="_blank">Home</a></li>
+<!--
+				<li><a href="about.html" target="_blank">About TUTUTU</a></li>
+				<li><a href="works.html" target="_blank">Past Works</a></li>
+-->
+				<li><a href="service.html"  target="_blank">Services</a></li>
+				<li><a href="contact.html"  target="_blank">Contact</a></li>
+			</ul>
+		</div>
+</div>
+	
+
+	<div class="structure">
+		<h1 class="left white">Contact US</h1>
+		<form action="#" method="post" >
+			<table id="bordered-form" cellpadding="0" cellspacing ="15" >
+				<tr>
+					<th class="block"><strong>Name</strong></th>
+					<th><input type="text" name="name" id="the_name" required="1"></th>
+				</tr>
+				<tr>
+					<th class="block"><strong>Email Adress</strong></th>
+					<th><input type="text" name="email" id="the_email" required="1"></th>
+				</tr>
+				<tr>
+					<th  class="block"><strong>Which aspect<br> are you interested</strong></th>
+					<th class="blockw left" style="padding:1% 0% 1% 10%">
+						<input type="checkbox" name="interest" value="archi">Architecture <br>
+						<input type="checkbox" name="interest" value="FA">Fine Art <br>
+						<input type="checkbox" name="interest" value="Design">Design <br>
+						<input type="checkbox" name="interest" value="Exhi">Exhibition <br>
+					</th>
+				</tr>
+				<tr>
+					<th  class="block"><strong>Business <br> corporation</strong></th>
+					<th class="blockw left" style="padding:1% 0% 1% 10%">
+						<input type ="radio" name="busi" value="1">Yes
+						<input type ="radio" name="busi" value="0">No
+					</th>
+				</tr>
+			</table>	
+			<input type = "submit" value = "Submit">
+		</form>
+	</div>
+	
+</body>
+</html>
