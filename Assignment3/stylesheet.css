@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	background-color: #FFFFFF;
+}
+
+list {
+	display: block;
+	border:  5px solid #000;
+	width: 70%;
+	margin: 5%;
+	background-color: #BBBBBB;
+}
+
+heading {
+	display: block;
+	border:  5px solid #000;
+	font-size:40px;
+	padding: 2%;
+	margin: 1%;
+	font-weight:bold;
+	
+}
+
+song {
+	display: block;
+	border:  5px solid #000;
+	padding: 2%;
+	margin: 1%;
+}
+
+title {
+	display: block;
+	font-size: 24px;
+	font-weight:bold;
+	margin-bottom: 10px;
+}
+
+artist, genre, year, link{
+	display: block;
+}
+
+artist:before{
+	content: "Artist: ";
+	text-decoration: underline;
+	font-weight:bold;
+}
+
+
+genre:before {
+	content: "Genre: ";
+	text-decoration: underline;
+	font-weight:bold;
+}
+
+year:before {
+	content: "Year Released: ";
+	text-decoration: underline;
+	font-weight:bold;
+}
+
+link:before {
+	content: "Link: ";
+	text-decoration: underline;
+	font-weight:bold;
+}
