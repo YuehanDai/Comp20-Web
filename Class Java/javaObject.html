@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Objects</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+    function showNumber(){
+        n = parseInt(document.getElementById("number").value);
+        alert("number plus 2: " + (n + 2) + "number times 2: " + (n * 2));
+    }
+
+</script>
+
+<body>
+    <form>
+        Enter a number: <input type = "text" id = "value">
+        <input type = "button" value = "Press Me" onclick="showNumber()">
+    </form>
+
+
+
+    <script language="javascript">
+        function Flower(name, price){
+            this.name = name;
+            this.price = price;
+            this.show = function(){
+                document.write("The name is " + this.name + " Price $" + this.price);
+            }
+            this.getCost = function(quantity){
+                return this.price * quantity;
+            }
+        }
+
+        myFlower = new Flower("Daisy", 3);
+        myFlower.show();
+
+    </script>
+
+
+</body>

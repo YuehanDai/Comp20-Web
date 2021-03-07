@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Object Demo</title>
+<!--
+- Create a class in Javascript called Flower
+- Flower should have properties:  name, price
+- Flower should have a method called getCost which asks the user for a quantity and displays the cost for that many flowers
+- Instance a Flower called myFlower with data:  “Daisy”, $3
+- Call the getCost() method for myFlower
+-->
+	
+<script language="javascript">
+function getCost()
+{
+	n = prompt("how many " + this.namePlural + " do you want","");
+	
+	if (n == 0)
+	{
+		document.write ("You must choose at least one to calculate the price.");
+		return;
+	}
+	else if (n==1) name = this.name;
+	else name = this.namePlural;
+	
+	document.write ("The cost for " 
+			+ n + " " + name + 
+			" is $" + (n*this.price) );
+}
+	
+function getCost2(n)
+{
+	
+	if (n == 0)
+	{
+		document.write ("You must choose at least one to calculate the price.");
+		return;
+	}
+	else if (n==1) name = this.name;
+	else name = this.namePlural;
+	
+	return n*this.price;
+
+}
+	
+function Flower(name, namep, price)
+{
+	this.name= name;
+	this.namePlural = namep;
+	this.price = price;
+	this.getCost = getCost();
+	this.showFlower= show();
+	
+	
+}
+function show() {
+		document.write ("The flower is: " 
+						+ this.name 
+						+ "<br>");
+}
+	
+f1 = new Flower("daisy","daisies", 3);
+f1.showFlower();
+n = prompt("how many " + f1.namePlural + " do you want","");
+price = getCost2(n);
+document.write ("The cost for " 
+			+ n + " " + f1.name + 
+			" is $" + price );
+	
+//f1.getCost();
+flowers = [new Flower("daisy", "daisies", 3),new Flower("rose", "roses", 10)];
+flowers[0].showFlower();
+	
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>

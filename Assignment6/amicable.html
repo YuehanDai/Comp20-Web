@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Amicable Number</title>
+<link rel="stylesheet" href="style.css">
+<script language="javascript">
+function Number(n){
+	this.value = n;
+	this.factors = function(){
+		// Reference: https://www.w3resource.com/javascript-exercises/javascript-function-exercise-13.php
+		n = this.value;
+		alert("Finding the proper divisors of " + n);
+		var num_factors = [];
+		for (i = 0; i <= Math.floor(Math.sqrt(n)); i++){
+			if (isAFactor(n, i)){		
+				alert(i + " is a propoer divisor of " + n);
+				num_factors.push(i);
+				if (n / i != i && n / i != n){
+					alert(n/i + " is a proper divisor of " + n);
+					num_factors.push(n / i);
+				}
+			}
+		}
+		num_factors.sort(function(x, y){return x - y;});  // numeric sort
+		return num_factors;
+	}
+	this.factorsSum = function(){
+		sum = 0;
+		factorSerie = this.factors();
+		for (i = 0; i < factorSerie.length; i ++){
+			sum += factorSerie[i];
+		}
+		return sum;
+	}
+}
+
+function amicableNumber(){
+	var number1 = new Number(parseInt(document.getElementById("first").value));
+	var number2 = new Number(parseInt(document.getElementById("second").value));
+	printResult(number1, number2);
+}
+
+function isAFactor(n, a){
+	if (n % a == 0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+function isAmicable(number1, number2){
+	if(number1.factorsSum() == number2.value && number2.factorsSum() == number1.value){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function printResult(number1, number2){
+	if (isAmicable(number1, number2)){
+		document.getElementById("result").style.display = "block";
+		document.getElementById("result").style.backgroundColor = "#d5ffcc";
+		document.getElementById("result").innerHTML = "The numbers:  " + number1.value + " and " + number2.value + " are amicable";
+	} else {
+		document.getElementById("result").style.display = "block";
+		document.getElementById("result").innerHTML = "The numbers:  " + number1.value + " and " + number2.value + " are not amicable";
+	}
+}
+</script>
+</head>
+
+
+<body>
+	<h1>Amicable Number Tester</h1> 
+	<div id = "intro">
+		<p><strong>From Wikipedia, </strong>
+		Amicable numbers are two different numbers related in such a way that the sum of the proper divisors of each is equal to the other number.</p>
+		
+		<p>The smallest pair of amicable numbers is (220, 284). They are amicable because the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110, of which the sum is 284; and the proper divisors of 284 are 1, 2, 4, 71 and 142, of which the sum is 220. (A proper divisor of a number is a positive factor of that number other than the number itself. For example, the proper divisors of 6 are 1, 2, and 3.)</p>
+	</div>
+	<form>
+		<table id="bordered-form">
+			<tr>
+				<th class = "block">Number 1</th>
+				<td><input type="text" name="number1" id="first" required="1"></td>
+			</tr>
+			<tr>
+				<th class = "block">Number 2</th>
+				<td><input type="text" name="number2" id="second" required="1"></td>
+			</tr>
+		</table>	
+		<input type = "button" value = "Press Me" onclick="amicableNumber()">
+	</form>
+
+		<div id = "result">"The numbers:  " + number1.value + " and " + number2.value + " are amicable</div>
+	
+</body>
+</html>

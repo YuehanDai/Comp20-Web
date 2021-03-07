@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>innerhtml demo</title>
+	<script language="javascript">
+	window.onload =function(){
+		//alert("hi");
+		b = document.getElementById ("btn1");
+		b.onclick = function() {
+			document.getElementById("here").innerHTML="hi there";
+		}
+	}
+	
+	</script>
+</head>
+
+<body>
+	<div id='here'>&nbsp;</div>
+	<input type='button' value = "write it" id="btn1">
+</body>
+</html>

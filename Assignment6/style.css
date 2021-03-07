@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #666666;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+h1 {
+	font-size: 50px;
+	background-color:#DEDEDE;
+	border: 5px solid #000000;
+	padding: 1%;
+	width: 68%;
+	margin: auto;
+	margin-top:30px;
+}
+
+form {
+	border: 5px solid #000000;
+	background-color:#DEDEDE;
+	text-align: center;
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+table {
+	width: 98%;
+	padding: 1%;
+	font-size: 20px;
+	margin: 1%;
+	margin-top: 20px;
+}
+
+input[type=text] {
+	min-width: 50vw;
+	width: 100%;
+	padding: 12px 40px;
+	box-sizing: border-box;
+	border:  5px solid #000;
+}
+
+input[type=button]{
+	padding: 5px 30px; 
+	box-sizing:border-box;
+	border: 5px solid #000; 
+	background-color: #FFFFFF; 
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-top:10px;
+}
+
+input[type=button]:hover {
+	border: 5px solid #333; 
+	color: #DFDDDD; 
+	background-color: #000;
+}
+
+.block {
+	border: 5px solid #000; 
+	background-color: #858585;
+}
+
+#intro {
+	border: 5px solid #000000;
+	background-color:#DEDEDE;
+	width: 64%;
+	margin: auto;
+	margin-top: 20px;
+	padding: 10px 3%;
+}
+
+#result {
+	border: 5px solid #000000;
+	background-color:#dedede;
+	text-align: center;
+	width: 68%;
+	margin: auto;
+	margin-top: 20px;
+	font-size: 20px;
+	padding: 20px 1%;
+	display: none ;
+}
