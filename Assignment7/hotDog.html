@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Joes Hotdogs</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class = "block">
+		<h1>Joe’s Hotdog Stand</h1>
+
+		<div>
+			<div>
+				<h2>Welcome, this is <strong>Joe’s Hotdog Stand</strong>. </h2>
+				<div  id = "menu">
+					<div class = "menuBlock">Menu</div><br>
+					<table>
+						<tr>
+							<th>Hotdogs</th>
+							<th class = "right">......................</th>
+							<th>$3.25/each</th>
+						</tr>
+					
+						<tr>
+							<th>French Fries</th>
+							<th class = "right">......................</th>
+							<th>$2.00/each</th>
+						</tr>
+					
+						<tr>
+							<th>Drinks</th>
+							<th class = "right">......................</th>
+							<th>$1.50/each</th>
+						</tr>
+					
+					
+					</table>
+				</div>
+
+				<p id = "special">
+					<strong>Joe’s special</strong> - 10% discount if the order (before tax) is at least $20. 
+				</p>
+
+			</div>
+
+			<p id = "emph">Your order: </p>
+			
+			<form>
+			<div id ="orderTable">
+				
+				<table  id = "order">
+				<tr>
+					<th class="left">Item</th>
+					<th>Unit Price</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+				</tr>
+				<tr>
+					<th class="left">Hotdogs</th>
+					<th>3.25</th>
+					<th id="quantityH">
+						<select id="NumberH" name="NumberH">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+					  	</select>
+					</th>
+					<th id="CostH">0.00</th>
+				</tr>
+
+				<tr>
+					<th class="left">French Fries</th>
+					<th>2.00</th>
+					<th id="quantityF">
+						<select id="NumberF" name="NumberF">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+					  	</select>
+					</th>
+					<th id="CostF">0.00</th>
+				</tr>
+
+				<tr>
+					<th class="left">Drinks</th>
+					<th>1.50</th>
+					<th id="quantityD">
+						<select id="NumberD" name="NumberD">
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="20">20</option>
+					  	</select>
+					</th>
+					<th id="CostD">0.00</th>
+				</tr>
+
+				<tr>
+					<th>&nbsp;</th>
+				</tr>
+				
+				<tr>
+					<th class = "left">Subtotal</th>
+					<th></th>
+					<th></th>
+					<th id ="subtotal">0.00</th>
+
+				</tr>
+
+				<tr id = "discountRow">
+					<th class = "left">Discount</th>
+					<th></th>
+					<th>-10%</th>
+					<th id = "discount">0.00</th>
+				</tr>
+
+				<tr>
+					<th class="left">Sales Tax</th>
+					<th></th>
+					<th>6%</th>
+					<th id = "tax">0.00</th>
+				</tr>
+
+				<tr>
+					<th class="left">Total</th>
+					<th></th>
+					<th></th>
+					<th id = "total">0.00</th>
+				</tr>
+			</table>
+			</div>
+			<button onclick="order()" id = "makeOrder" style = "text-align: center;">Make the Order</button>
+			</form>
+
+		</div>
+
+		
+
+	</div>
+	
+	<script language="javascript">
+			hotDog = 0;
+			fries = 0;
+			drink = 0;
+			discount = 0;
+
+			function order(){
+				setHotdogs();
+				setFries();
+				setDrinks();
+				if (orderSomething()){
+					sub = hotDog * 3.25 + fries * 2.00 + drink * 1.50;
+					subtotal = sub.toFixed(2);
+					document.querySelector("#subtotal").innerHTML = subtotal;
+
+					if (sub > 20){
+						checkDiscount();
+					} 
+					checkTax();
+					sum();
+					print();
+				}
+			}
+
+			function print(){
+				changeQuantity();
+				orderTable = $('#orderTable').clone();
+				orderTable.attr('id','print');
+				var myWindow = window.open("", "order", "width=400, height=300");
+
+				myWindow.document.write("<h2>Order status<h2>");
+				myWindow.document.write(orderTable.html());
+			}
+
+			function changeQuantity(){
+				$('#quantityH').html(hotDog);
+				$('#quantityF').html(fries);
+				$('#quantityD').html(drink);
+			}
+
+			function setHotdogs(){
+				hotDog = parseInt($('#NumberH').val());
+				//Set the quantity and the amount of hotdogs
+				priceH = (hotDog * 3.25).toFixed(2);
+				document.querySelector("#CostH").innerHTML = priceH;
+			}
+
+			function setFries(){
+				fries = parseInt($('#NumberF').val());
+				//Set the quantity and the amount of French Fries
+				priceF = (fries * 2.00).toFixed(2);
+				document.querySelector("#CostF").innerHTML = priceF;
+			}
+
+			function setDrinks(){
+				drink = parseInt($('#NumberD').val());
+				//Set the quantity and the amount of drinks
+				priceD = (drink * 1.50).toFixed(2);
+				document.querySelector("#CostD").innerHTML = priceD;
+			}
+
+			function orderSomething(){
+				if (hotDog == 0 && fries == 0 && drink == 0){
+					alert("You have not ordered anything!");
+					return false;
+				} else {
+					return true;
+				}
+			}
+
+			function checkDiscount(){
+				discountClass = document.querySelector("#discountRow");
+				discountClass.style.visibility = "visible";
+				discount = sub * 0.1;
+				dis = discount.toFixed(2);
+				document.querySelector("#discount").innerHTML = dis;
+			}
+
+			function checkTax(){
+				tax = (sub - discount) * 0.06;
+				Tax = tax.toFixed(2);
+				document.querySelector("#tax").innerHTML = Tax;
+			}
+
+			function sum(){
+				total = sub - discount + tax;
+				Total = total.toFixed(2);
+				document.querySelector("#total").innerHTML = Total;
+			}
+
+		</script>
+	
+</body>
+</html>

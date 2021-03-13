@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<!--
+Create a form with a text box and a button.
+When the button is clicked, display the following in an alert (popup)
+The number value in the textbox plus 3
+The number value in the textbox times 3
+The number value in the textbox minus 3
+-->
+<script language="javascript">
+	
+	function calc()
+	{
+		n = document.getElementById("num").value;
+		s = n + " + 3 is " + (parseInt(n)+ 3) + "\n";
+		s += n + " * 3 is " + (n* 3) + "\n";
+		s += n + " - 3 is " + (n- 3) + "\n";
+		alert(s);
+	}
+	
+	//btn = document.getElementById("btn1");
+	//btn.onclick = calc();
+	
+</script>
+</head>
+
+<body>
+	<form>
+	Number: <input type="text" name="num" id="num"><br>
+	<input type="button" value="Calculate"
+		   id="btn1" onclick = "calc()">
+	</form>
+</body>
+</html>

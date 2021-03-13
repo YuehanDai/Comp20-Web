@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<!--
+Create a page with a set of radio buttons plus a button.
+When the button is pressed, display the value of the selected radio button
+
+-->
+<script language="javascript">
+radioLabels = ["first", "second","third","fourth"];
+window.onload = function() {
+	document.getElementById("btn1").onclick= function()
+	{
+		val="";
+		for (i=0;i<radioLabels.length; i++)
+		{
+			with(document.forms[0])
+			{
+				if (chx[i].checked)
+				{
+					val= chx[i].value;
+					break;
+				}
+			}
+		}  
+		alert ("The value is " + val)
+		
+	} //end button click
+	document.getElementById("btn2").onclick= function()
+	{
+		days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+		months=["Jan", "Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+		d = new Date();
+		dayOfWeek= days[d.getDay()];
+		month = months[d.getMonth()];
+		dateString=
+			"Today is: "+
+			dayOfWeek + " " + month + " " +
+			d.getDate() + ", " + d.getFullYear() ;
+		document.getElementById("theDate").innerHTML= 
+			dateString;
+		
+	}
+	
+}	
+	
+</script>
+</head>
+
+<body>
+	<form>
+		
+	<div style = 'font-size:20px;'>	
+	<script language="javascript">
+	
+	for (i=0; i<radioLabels.length; i++)
+	{
+		document.write ( 
+			'<input type="radio" name="chx" id="chk' + (i+1) + '" value="' + radioLabels[i] + '">' +
+			radioLabels[i] + '<br />');
+	}
+	
+	</script>
+		<br /><input type = "button" id="btn1" 
+		value= "Show Radio"> &nbsp;&nbsp;
+		<input type = "button" id="btn2" 
+		value= "Show Today">
+		</div>
+</form>
+	<br /><div id="theDate">&nbsp;</div>
+	
+</body>
+</html>

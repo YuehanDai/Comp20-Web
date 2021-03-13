@@ -1,0 +1,10 @@
+// JSON Document
+
+{
+	"name": "Fido1",
+	"type": "cat",
+	"breed": "Maine Coon",
+	"age": 4,
+	"gender": "female",
+	"procedures": ["checkup","rabies","spayed"]
+}

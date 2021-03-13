@@ -1,0 +1,15 @@
+{
+	"name" : "Fido1",
+	"type" : "cat",
+	"breed" : "Main Coon",
+	"age" : 4,
+	"gender" : "female",
+	"procedure" : ["checkup", "rabies", "spayed"],
+	"family" : {
+		"name" : "smith",
+		"town" : "Cambridge",
+		"children" : 1,
+		"other_pets" : false,
+	}
+}
+

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Validation Demo</title>
+	<style type="text/css">
+		.errMsg {color: #D20E11; border: solid 1px #d20e11; display:none;  padding: 1px 15px;	}
+	
+	</style>
+<script language="javascript">
+
+	function validate()
+	{
+		err=false;
+		document.getElementById("errPhone").style.display = "none";
+		document.getElementById("errName").style.display = "none";
+		with (document.data)
+		{
+			if (phone.value=="")
+			{
+				document.getElementById("errPhone").style.display = "inline-block";
+				phone.focus();
+				err=true;
+			}
+			if (name.value=="")
+			{
+				document.getElementById("errName").style.display = "inline-block";
+				name.focus();
+				err=true;
+			}
+		}
+		return !err;
+	}
+
+	
+</script>
+</head>
+
+<body>
+	<form 
+	 	name = "data"
+		method="post"
+		onsubmit="return validate()" 
+	>
+		
+	Name*: <input type = "text" name="name"> 
+		<div id="errName" class="errMsg">Name is required</div><br/>
+	Address: <input type = "text" name="address"> <br />
+	Phone*: <input type = "text" name="phone"> 
+		<div id="errPhone" class="errMsg">Phone is required</div><br /> 
+	<input type = "submit" value = "Submit">
+</form>
+
+</body>
+</html>
