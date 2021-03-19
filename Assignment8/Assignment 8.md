@@ -1,44 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Jade Delight</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css">
-</head>
+# Assignment 8: Jade Delight
 
-<body>
-<script language="javascript">
+Student Name: Yuehan Dai
 
-function MenuItem(name, cost)
-{
-	this.name = name;
-	this.cost=cost;
-}
+CS login: ydai05
 
-menuItems = new Array(
-	new MenuItem("Chicken Chop Suey", 4.5),
-	new MenuItem("Sweet and Sour Pork", 6.25),
-	new MenuItem("Shrimp Lo Mein", 5.25),
-	new MenuItem("Moo Shi Chicken", 6.5),
-	new MenuItem("Fried Rice", 2.35)
-);
+## URL
 
-function makeSelect(name, minRange, maxRange)
-{
-	var t= "";
-	t = "<select name='" + name + "' size='1'>";
-	for (j=minRange; j<=maxRange; j++)
-	   t += "<option>" + j + "</option>";
-	t+= "</select>"; 
-	return t;
-}
-</script>
-<div class = "block">
-<h1>Jade Delight</h1>
-<form>
 
-<div id = "information">
+
+## Code
+
+### HTML
+
+```html
 <p>First Name: <input type="text"  name='fname'/></p>
 <p>Last Name*:  <input type="text"  name='lname'/><div id="errName" class="errMsg">Last Name is required</div></p>
 
@@ -56,44 +30,13 @@ function makeSelect(name, minRange, maxRange)
 
 <p>Street: <input type="text"  name='street' /><div id="errStreet" class="errMsg">Street is required</div></p>
 <p>City: <input type="text"  name='city' /><div id="errCity" class="errMsg">City is required</div></p>
+```
 
-</div>
-
-<div id = "order">
-<table border="0" cellpadding="3">
-  <tr>
-    <th>Select Item</th>
-    <th>Item Name</th>
-    <th>Cost Each</th>
-    <th>Total Cost</th>
-  </tr>
-<script language="javascript">
-
-  var s = "";
-  for (i=0; i< menuItems.length; i++)
-  {
-	  s += "<tr><td>";
-	  s += makeSelect("quan" + i, 0, 10);
-	  s += "</td><td>" + menuItems[i].name + "</td>";
-	  s += "<td> $ " + menuItems[i].cost.toFixed(2) + "</td>";
-	  s += "<td>$<input type='text' name='cost'/></td></tr>";
-  }
-  document.writeln(s);
-</script>
-</table>
-<p>Subtotal: 
-   $<input type="text"  name='subtotal' id="subtotal" />
-</p>
-<p>Mass tax 6.25%:
-  $ <input type="text"  name='tax' id="tax" />
-</p>
-<p>Total: $ <input type="text"  name='total' id="total" />
-</p>
-
+```html
 <input type = "button" onclick = "order()" value = "Submit Order" />
-</div>
-</div>
+```
 
+```html
 <script language = "javascript">
 	//global variables
 	var quantity = [0, 0, 0, 0, 0];
@@ -418,7 +361,85 @@ function makeSelect(name, minRange, maxRange)
 
 </script>
 
+```
 
-</form>
-</body>
-</html>
+
+
+### CSS
+
+```css
+@charset "utf-8";
+/* CSS Document */
+
+.errMsg {
+    color: #D20E11; 
+    border: solid 1px #d20e11; 
+    padding: 1px 15px;
+}
+
+body {
+	width: 70%;
+	background: #686868;
+	border: 5px #000000 solid;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.block{
+	background-color: #FFFFFF;
+	padding: 5%;
+}
+
+h1{
+	padding: 5px;
+	text-decoration: underline;
+	font-size: 50px;
+}
+
+#information {
+	border: 2px #000000 solid;
+	padding: 0 3%;
+}
+
+#order {
+	border: 2px #000000 solid;
+	padding: 1% 3%;
+	margin-top: 3%;
+}
+
+button {
+	border:2px solid #000000;
+	padding: 1%;
+	font-weight: bold;
+	margin-top:1%;
+}
+
+button:hover {
+	border: 2px solid #FFFFFF;
+}
+
+input[type=text]{
+	border: 2px #000000 solid;
+}
+
+select {
+	border: 2px #000000 solid;
+}
+
+input[type=button]{
+	margin-top: 2%;
+	margin-bottom: 3%;
+	border: 4px #000000 solid;
+	background-color: #C2C2C2;
+	padding: 5px;
+	font-size: 20px;
+}
+
+input[type=button]:hover{
+	border: 4px #000000 solid;
+	background-color: #000000;
+	color: #FFFFFF;
+	padding: 5px;
+}
+```
+
