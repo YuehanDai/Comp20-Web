@@ -6,7 +6,7 @@ CS login: ydai05
 
 ## URL
 
-
+http://comp20.great-site.net/Assignment8/jade_delight.html
 
 ## Code
 
@@ -28,8 +28,11 @@ CS login: ydai05
 	Delivery
 </p>
 
+<div id = "address">
 <p>Street: <input type="text"  name='street' /><div id="errStreet" class="errMsg">Street is required</div></p>
 <p>City: <input type="text"  name='city' /><div id="errCity" class="errMsg">City is required</div></p>
+</div>
+
 ```
 
 ```html

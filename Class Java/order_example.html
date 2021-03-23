@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS Cart Example</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
+<style type="text/css">
+	#order-table div {display:inline-block; font-size: 15px}
+	#order-table div.one-order-item {display:block;  padding: 15px 0;  border-bottom: 1px solid #333}
+	
+	.col-item {width: 150px}
+	.col-cost {width: 90px}
+	.col-cost input {width: 70px}
+	.col-quan {width: 80px}
+	
+	#order-table div.col-title {font-weight:700;  font-size: 18px }
+	
+</style>
+<script language="javascript">
+items= ["burger","cheeseburger","fries","soft drink"];
+prices=[4,5,2.5,1.75]
+ORDER_ITEMS= 6;
+
+$(document).ready(function(){
+	$(".col-quan select").change(function() {
+		//alert("hi")
+		//quan= this.selectedIndex;
+		//alert(quan)
+		updateTotal();
+	})
+	$(".col-item select").change(function() {
+		//alert("hi")
+		//alert(this.name)
+		rowIndex = this.name.substring(10);
+		//alert(rowIndex)
+		priceIndex = this.selectedIndex;
+		//alert(priceIndex)
+		document.forms[0].itemCost[rowIndex].value= "$" + prices[priceIndex].toFixed(2);
+		updateTotal();
+		
+	})
+	function updateTotal()
+	{
+		total=0;
+		for (n=0;n<ORDER_ITEMS;n++)
+		{
+			cost = document.forms[0].itemCost[n].value.substring(1)
+			quan = document.forms[0].itemQuantity[n].value
+			price =cost * quan;
+			//alert(price)
+			total += price
+		}
+		$("#total").html("$ " + total.toFixed(2))
+	}
+
+})
+	
+function makePickItem(x)
+{
+	document.write("<select name='itemSelect" + x + "'>");
+	items.forEach (function(item){
+		document.write("<option>" + item + "</option>");
+	});
+	document.write("</select>");
+}
+	
+function makeQuantity()
+{
+	document.write("<select name='itemQuantity'>");
+	for (i=0; i<6;i++)
+		document.write("<option>" + i + "</option>");
+	document.write("</select>");
+}
+	
+function makeOrderEntries()
+{
+	for (n=0;n<ORDER_ITEMS;n++)
+	{
+		price = prices[0].toFixed(2);
+		
+		document.write("<div class='one-order-item'>")
+			document.write ("<div class='col-item'>");
+				makePickItem(n);
+			document.write ("</div>");
+
+			document.write ("<div class='col-cost'> <input type='text' name='itemCost' value = $" + price + "></div>");
+
+			document.write ("<div class='col-quan'>");
+				makeQuantity();
+			document.write ("</div>");
+		document.write ("</div>");
+	}
+}
+	
+</script>
+</head>
+
+<body>
+	<div id='order-table'>
+	<div class='one-order-item'>
+		<div class='col-item col-title'>Item</div>
+		<div class='col-cost col-title'>Cost Each</div>
+		<div class='col-quan col-title'>Quantity</div>
+	</div>
+	
+	<form>
+	<script language="javascript">
+		makeOrderEntries();
+	</script>	
+	</form>
+	</div> <!-- end order-table-->
+	<div id='total'>Total:  $0.00</div>
+</body>
+</html>

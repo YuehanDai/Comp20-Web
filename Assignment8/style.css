@@ -5,6 +5,10 @@
 	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 }
 
+#address{
+	display:none;
+}
+
 .errMsg {
     color: #D20E11; 
     border: solid 1px #d20e11; 

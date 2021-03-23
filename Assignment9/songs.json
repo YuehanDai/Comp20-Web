@@ -1,0 +1,73 @@
+[
+{
+	"name" : "Merry Christmas, Mr. Lawrence",
+	"artist" : "Ryuichi Sakamoto(坂本龍一)",
+	"genre" : ["Instrumental"],
+	"year" : 1983,
+	"link" : "https://www.youtube.com/watch?v=LGs_vGt0MY8"
+},
+{
+	"name" : "Rain",
+	"artist" : "Ryuichi Sakamoto(坂本龍一)",
+	"genre" : ["Instrumental"],
+	"year" : 1996,
+	"link" : "https://www.youtube.com/watch?v=8tKfYwc4zxA"
+}, 
+{
+	"name" : "Lemon",
+	"artist" : "Yonezu Kenshi(米津玄師)",
+	"genre" : ["J-pop"],
+	"year" : 2018,
+	"link" : "https://www.youtube.com/watch?v=7PowTFw-jAA"
+}, 
+{
+	"name" : "Shape of My Heart",
+	"artist" : "Sting",
+	"genre" : ["Pop rock"],
+	"year" : 1993,
+	"link" : "https://www.youtube.com/watch?v=QK-Z1K67uaA"
+}, 
+{
+	"name" : "Explosive",
+	"artist" : "David Garrett",
+	"genre" : ["Classical"],
+	"year" : 2015,
+	"link" : "https://www.youtube.com/watch?v=vZvwg1p2OI4"
+}, 
+{
+	"name" : "Faded",
+	"artist" : "Alan Walker",
+	"genre" : ["EDM"],
+	"year" : 2015,
+	"link" : "https://www.youtube.com/watch?v=60ItHLz5WEA"
+}, 
+{
+	"name" : "Libertango",
+	"artist" : "Yoyo Ma",
+	"genre" : ["Classical"],
+	"year" : 1997,
+	"link" : "https://www.youtube.com/watch?v=WdoHeJBbNs0"
+}, 
+{
+	"name" : "Anatani Deawanakereba Kasetsutouka",
+	"artist" : "Aimer",
+	"genre" : ["J-pop"],
+	"year" : 2012,
+	"link" : "https://www.youtube.com/watch?v=iA9Ctaqo3Zc"
+}, 
+{
+	"name" : "The Humming",
+	"artist" : "Enya",
+	"genre" : ["Celtic"],
+	"year" : 2015,
+	"link" : "https://www.youtube.com/watch?v=FOP_PPavoLA"
+}, 
+{
+	"name" : "Echoes in Rain",
+	"artist" : "Enya",
+	"genre" : ["New-age"],
+	"year" : 2015,
+	"link" : "https://www.youtube.com/watch?v=8DDHulO485k"
+}
+
+]
