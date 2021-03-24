@@ -1,4 +1,3 @@
-
 [
 {
 	"name" : "Merry Christmas, Mr. Lawrence",
@@ -17,7 +16,7 @@
 {
 	"name" : "Lemon",
 	"artist" : "Yonezu Kenshi(米津玄師)",
-	"genre" : ["J-pop"],
+	"genre" : ["J-pop", "Japanese"],
 	"year" : 2018,
 	"link" : "https://www.youtube.com/watch?v=7PowTFw-jAA"
 }, 
@@ -31,7 +30,7 @@
 {
 	"name" : "Explosive",
 	"artist" : "David Garrett",
-	"genre" : ["Classical"],
+	"genre" : ["Classical", "Instrumental"],
 	"year" : 2015,
 	"link" : "https://www.youtube.com/watch?v=vZvwg1p2OI4"
 }, 
