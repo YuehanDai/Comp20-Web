@@ -4,38 +4,145 @@
 <meta charset="utf-8">
 <title>Song List</title>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">
+<script language = "javascript">
+    var jsondata = [];
+    var list = [];
+    var filterSong = [];
+
+    function write(){
+        $.get( "https://raw.githubusercontent.com/YuehanDai/Comp20-Web/main/Assignment9/songs.json", 
+        function( data ) {
+            jsondata = JSON.parse(data);
+            writeRaw();
+            writeList();
+            writeFilter();
+        })    
+    }
+
+    function writeRaw(){
+        str = JSON.stringify(jsondata) + "</div>";
+        e = document.getElementById("raw");
+        e.innerHTML = str;
+    }
+
+    function writeList(){
+        var strHTML = "" ;
+        jsondata.forEach(function(song) {  
+        strHTML += "<div id = 'oneSong'><h3>"
+            + song.name + "</h3>"
+            + "<strong>Artist: </strong>"
+            + song.artist + "<br>"
+            + "<strong>Genre: </strong>";
+            for (i = 0; i < song.genre.length; i++){
+                if (i == 0){
+                    strHTML += song.genre[i];
+                } else {
+                    strHTML += ", " + song.genre[i];
+                }
+            }
+        strHTML += "<br>" 
+            + "<strong>Year Released: </strong>"
+            + song.year + "<br>"
+            + "<strong>Link: </strong><a href='"
+            + song.link + "'>"
+            + song.link
+            + "</a> <br>"
+        strHTML += "</div>";
+        }) 
+        e = document.getElementById("songs");
+        e.innerHTML = strHTML;
+    }
+
+    function writeFilter(){
+        readGenre();
+        writeSelect();
+    }
+
+    function readGenre(){        
+        jsondata.forEach(function(song){
+            song.genre.forEach(function(genres){
+                if(!inList(genres)){
+                    list.push(genres);
+                }                
+            });
+        });
+    }
+
+    function inList(genreName){
+        var result = false;
+        list.forEach(function(genreInList){
+            if (genreInList == genreName){
+                result = true;
+            }
+        })
+        return result;
+    }
+
+    function writeSelect(){
+        list.sort();
+        str = "<select name='genre' id = 'genre' size='1'>";
+        list.forEach(function(genres){
+            str += "<option>" + genres + "</option>";
+        })
+        str += "</select>"
+            + "</form>";
+        e = document.getElementById("selections");
+        e.innerHTML = str;
+    }
+
+
+    function filter(){
+        filterSong = [];
+        userchoice = readChoice();
+        jsondata.forEach(function(song){
+            song.genre.forEach(function(genres){
+                if (genres == userchoice){
+                    filterSong.push(song.name);
+                }
+            })
+        })
+        writeSongs();
+    }
+
+    function readChoice(){
+        tag = $('#genre').find(":selected").text();;
+        return tag;
+    }
+
+    function writeSongs(){
+        str = "<ul>";
+        filterSong.forEach(function(songName){
+            str +="<li>" 
+                + songName
+                + "</li>";
+        })
+        str += "</ul>";
+        e = document.getElementById("result");
+        e.innerHTML = str;
+    }
+</script>
 </head>
 
 <body>
-    <script type="text/javascript">
-        $.get( "https://raw.githubusercontent.com/YuehanDai/Comp20-Web/main/Assignment9/songs.json", 
-		function( data ) {
-            jsondata = JSON.parse(data);
-            str = "<div><h3>Raw String</h3>";
-			str += JSON.stringify(jsondata)
-                + "</div>"
-			document.write(str +"<br/>");
-        var strHTML = "" ;
-		jsondata.forEach(function(song) {  
-            strHTML += "<div><h3>"
-			    + song.name + "</h3>"
-                + "<strong>Artist: </strong>"
-                + song.artist + "<br>"
-                + "<strong>Genre: </strong>";
-                song.genre.forEach(function(genre){
-                    strHTML += genre + " ";
-                });
-            strHTML += "<br>" 
-                + "<strong>Year Released: </strong>"
-                + song.year + "<br>"
-                + "<strong>Link: </strong><a href='"
-                + song.link + "'>"
-                + song.link
-                + "</a> <br>"
-            strHTML += "</div>";
-			}) 
-        document.write (strHTML);  
-        })
-    </script>
+    <h1>Assignment 9: JSON Song List</h1>
+    <h2>Raw String</h2>
+    <div id = "raw">&nbsp;</div>
+
+    <h2>Song List</h2>
+    <div id = "songs">&nbsp;</div>
+
+    <h2>View by Filter: </h2>
+    <div>
+        <form>
+        <div id = 'selections'>&nbsp;</div>
+        <input type='button' value='Search by Genre' onclick = "filter()">
+        </form>
+    </div> 
+
+    <div id = 'result'>&nbsp;</div>
+
+    <script language = "javascript">write()</script>     
+ 
 </body>
 </html>

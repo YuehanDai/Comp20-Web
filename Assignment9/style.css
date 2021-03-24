@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+
+body {
+    display: block;
+	border:  5px solid #000;
+	width: 70%;
+	margin: 5%;
+}
+
+h1 {
+    display: block;
+	border:  5px solid #000;
+	font-size:40px;
+	padding: 2%;
+	margin: 1%;
+	font-weight:bold;
+}
+
+h2 {
+    display: block;
+	border:  5px solid #000;
+	font-size:25px;
+	padding: 1%;
+	margin: 1%;
+   
+}
+
+input {
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+    border:  2px solid #000;
+    margin: 1%;
+    padding: 0.5%;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#raw {
+    display: block;
+	border:  5px solid #000;
+	font-size:15px;
+	padding: 1%;
+	margin: 1%;
+    font-family: Georgia, serif;
+}
+
+#selections {
+    display: inline-block;
+}
+
+#oneSong {
+    border:  5px solid #000;
+	font-size:15px;
+	padding: 1%;
+	margin: 1%;
+}
+
+#oneSong h3 {
+    text-decoration: underline;
+}
+
+form {
+    border:  5px solid #000;
+	padding: 1%;
+    margin: 1%;
+}
+
+#result {
+    border:  5px solid #000;
+    margin: 1%;
+    padding: 0%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}

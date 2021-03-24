@@ -23,7 +23,7 @@
 {
 	"name" : "Shape of My Heart",
 	"artist" : "Sting",
-	"genre" : ["Pop rock"],
+	"genre" : ["Pop rock", "English"],
 	"year" : 1993,
 	"link" : "https://www.youtube.com/watch?v=QK-Z1K67uaA"
 }, 
@@ -37,35 +37,35 @@
 {
 	"name" : "Faded",
 	"artist" : "Alan Walker",
-	"genre" : ["EDM"],
+	"genre" : ["EDM", "English"],
 	"year" : 2015,
 	"link" : "https://www.youtube.com/watch?v=60ItHLz5WEA"
 }, 
 {
 	"name" : "Libertango",
 	"artist" : "Yoyo Ma",
-	"genre" : ["Classical"],
+	"genre" : ["Classical", "Instrumental"],
 	"year" : 1997,
 	"link" : "https://www.youtube.com/watch?v=WdoHeJBbNs0"
 }, 
 {
 	"name" : "Anatani Deawanakereba Kasetsutouka",
 	"artist" : "Aimer",
-	"genre" : ["J-pop"],
+	"genre" : ["J-pop", "Japanese"],
 	"year" : 2012,
 	"link" : "https://www.youtube.com/watch?v=iA9Ctaqo3Zc"
 }, 
 {
 	"name" : "The Humming",
 	"artist" : "Enya",
-	"genre" : ["Celtic"],
+	"genre" : ["Celtic", "English"],
 	"year" : 2015,
 	"link" : "https://www.youtube.com/watch?v=FOP_PPavoLA"
 }, 
 {
 	"name" : "Echoes in Rain",
 	"artist" : "Enya",
-	"genre" : ["New-age"],
+	"genre" : ["New-age", "English"],
 	"year" : 2015,
 	"link" : "https://www.youtube.com/watch?v=8DDHulO485k"
 }
