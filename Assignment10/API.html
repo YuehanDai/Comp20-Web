@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+	<title>Holiday</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getHoliday() {
+			str = getDay();
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+ 
+			// Step 2: Set the URL for the AJAX request to be the JSON file
+ 
+		request.open("GET", str, true);
+
+			console.log("2 - opened request file");
+ 
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+				 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+					console.log("5 - response received");
+					result = request.responseText;
+					document.getElementById("data").innerHTML = result;
+
+					wrtieCalender(JSON.parse(result));
+					
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+		}
+
+		function wrtieCalender(calender){
+			str = [];
+			calender["response"]["holidays"].forEach(function(holiday){
+				str += "<div class = 'holiday'><strong>Name: </strong>"
+					+ holiday["name"]
+					+ "<br>" 
+					+ "<strong>Country: </strong>"
+					+ holiday["country"]["name"]
+					+ "<br>"
+					+ "<strong>Description: </strong>"
+					+ holiday["description"]
+					+ "<br><br></div>";
+					
+
+			})
+			document.getElementById("data").innerHTML = str; 
+
+		}
+
+		function getDay(){
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;
+			var yyyy = today.getFullYear();
+			str = "https://calendarific.com/api/v2/holidays?&api_key=	004527772cb9e18747efefb2456eeb5467c01bfd&country=US&year=" + yyyy + "&month=" + mm + "&day=" + dd;
+			writeDate();
+			return str;
+		}
+
+		function writeDate(){
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+
+			today = mm + '/' + dd + '/' + yyyy;
+			document.getElementById("date").innerHTML = today; 
+		}
+	</script>
+	<style>
+		body {
+			width: 70%;
+			margin-left:10%;
+			font-family: 'Courier New', Courier, monospace;
+		}
+
+		h1 {
+			text-decoration: underline;
+			margin: 1%;
+		}
+
+		.holiday {
+			border: 3px solid #000;
+			margin: 1%;
+			padding: 1%;
+			font-size: 20px;
+		}
+
+		#date {
+			margin: 1%;
+			
+		}
+		
+	</style>
+</head>
+
+
+<body onload="getHoliday()">
+
+	<h1>Holidays Today</h1>
+	<div id = "date"></div>
+	<div id="data">Loading...</div>
+</body>
+</html>
