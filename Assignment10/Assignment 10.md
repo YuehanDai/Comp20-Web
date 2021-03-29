@@ -16,4 +16,159 @@ http://comp20.great-site.net/Assignment10/API.html
 
 **What were the most challenging and most satisfying things about doing this assignment?**
 
-The most challenging part of this assignment is to find a suitable and easy API for the raw data since the query of some API is hard to write and the most satisfying things for me is after find the API, it is kind of fun to work with the information from the API. 
+The most challenging part of this assignment is to find a suitable and easy API for the raw data since the documentation of some API is hard to read and their request is too complex to write. The most satisfying things for me is after find the API, it is kind of fun to work with the information from the API. 
+
+
+
+## Code
+
+API.html
+
+```html
+<!doctype html>
+<html>
+<head>
+	<title>Holiday</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getHoliday() {
+			str = getDay();
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+ 
+			// Step 2: Set the URL for the AJAX request to be the JSON file
+ 
+		request.open("GET", str, true);
+
+			console.log("2 - opened request file");
+ 
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+				 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+					console.log("5 - response received");
+					result = request.responseText;
+					document.getElementById("data").innerHTML = result;
+
+					wrtieCalender(JSON.parse(result));
+					
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+		}
+
+		function wrtieCalender(calender){
+			str = [];
+			calender["response"]["holidays"].forEach(function(holiday){
+				str += "<div class = 'holiday'><strong>Name: </strong>"
+					+ holiday["name"]
+					+ "<br>" 
+					+ "<strong>Country: </strong>"
+					+ holiday["country"]["name"]
+					+ "<br>"
+					+ "<strong>Description: </strong>"
+					+ holiday["description"]
+					+ "<br><br></div>";
+					
+
+			})
+			document.getElementById("data").innerHTML = str; 
+
+		}
+
+		function getDay(){
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;
+			var yyyy = today.getFullYear();
+			str = "https://calendarific.com/api/v2/holidays?&api_key=	004527772cb9e18747efefb2456eeb5467c01bfd&country=US&year=" + yyyy + "&month=" + mm + "&day=" + dd;
+			writeDate();
+			return str;
+		}
+
+		function writeDate(){
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+
+			today = mm + '/' + dd + '/' + yyyy;
+			document.getElementById("date").innerHTML = today; 
+		}
+	</script>
+	<style>
+		body {
+			width: 70%;
+			margin-left:10%;
+			font-family: 'Courier New', Courier, monospace;
+		}
+
+		h1 {
+			text-decoration: underline;
+			margin: 1%;
+		}
+
+		.holiday {
+			border: 3px solid #000;
+			margin: 1%;
+			padding: 1%;
+			font-size: 20px;
+		}
+
+		#date {
+			margin: 1%;
+			
+		}
+		
+	</style>
+</head>
+
+
+<body onload="getHoliday()">
+
+	<h1>Holidays Today</h1>
+	<div id = "date"></div>
+	<div id="data">Loading...</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<div class = "holiday">
+		<h3>API</h3>
+		<p><a href = "https://calendarific.com/">https://calendarific.com/</a></p>
+		<h3>Purpose</h3>
+		<p>This API is used for searching for the holiday which it allows the user to set the years, months, and days, as well as the nations and languages and find all the holidays with satisfy the setting</p>
+		<h3>API Request</h3>
+		<p>In this website, it will automatically read the today's date and set the options of api including the years, monthes, and days, and then, it will send the request to the api to find the holiday(s) of today.</p>
+		<h3>Optential Uses</h3>
+		<ul>
+			<li>This can be used in some navigation pages which adds more elements of interaction design from the web and the users</li>
+			<li>This can also be used in some "New tab" pages. For example, the page of google will display the event of this day within the design of their LOGO (although not every day). In women's day or in earth's day, they will replace their basic LOGO with the illustration of that event. In some way, this "Holidays Today" is similar with that, but Google's page absolutely adds more design and illustration within it. </li>
+		</ul>
+	</div>
+	
+</body>
+</html>
+```
+
