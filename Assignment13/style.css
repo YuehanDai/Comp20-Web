@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+#address{
+	display:none;
+}
+
+.errMsg {
+    color: #D20E11; 
+    border: solid 1px #d20e11; 
+    padding: 1px 15px;
+}
+
+body {
+	width: 70%;
+	background: #686868;
+	border: 5px #000000 solid;
+	margin: auto;
+	padding: 1%;
+}
+
+.block{
+	background-color: #FFFFFF;
+	padding: 5%;
+}
+
+h1{
+	padding: 5px;
+	text-decoration: underline;
+	font-size: 50px;
+	margin-top: 50px;
+}
+
+#information {
+	border: 2px #000000 solid;
+	padding: 0 3%;
+}
+
+#order {
+	border: 2px #000000 solid;
+	padding: 1% 3%;
+	margin-top: 3%;
+}
+
+button {
+	border:2px solid #000000;
+	padding: 1%;
+	font-weight: bold;
+	margin-top:1%;
+}
+
+button:hover {
+	border: 2px solid #FFFFFF;
+}
+
+input[type=text]{
+	border: 2px #000000 solid;
+}
+
+select {
+	border: 2px #000000 solid;
+}
+
+input[type=submit]{
+	margin-top: 2%;
+	margin-bottom: 3%;
+	border: 4px #000000 solid;
+	background-color: #C2C2C2;
+	padding: 5px;
+	font-size: 20px;
+}
+
+input[type=submit]:hover{
+	border: 4px #000000 solid;
+	background-color: #000000;
+	color: #FFFFFF;
+	padding: 5px;
+}

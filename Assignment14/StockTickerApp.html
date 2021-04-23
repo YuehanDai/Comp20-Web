@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stock Ticker App</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<style>
+/*
+	#companyInput {
+		display: none;
+	}
+*/
+</style>
+	
+<script>
+	$(document).ready(function(){
+		$("#companyInput").hide();
+		$("#stockInput").show();
+		
+		$('input[name = select]').change(function() {
+			$("#companyInput").toggle();
+			$("#stockInput").toggle();
+		});	
+	});
+</script>
+</head>
+
+<body>
+	<form>	
+		Choose Search Type:
+		<div>
+			<input type="radio" id="stock" name="select" value="stock" checked>
+			<label for="stock">Stock Ticker</label>
+			<input type="radio" id="company" name="select" value="company">
+			<label for="company">Company Name</label>
+		</div>
+		
+		<div id ="stockInput">
+			<label for="StockName">Enter Stock Ticker Code:</label>
+			<input type="text" id="StockName" name="StockName">
+		</div>
+		
+		<div id="companyInput">
+			<label for="CompanyName">Enter Company Name:</label>
+			<input type="text" id="CompanyName" name="CompanyName">
+		</div>
+		
+		<input type="submit" value="Find">
+	</form>
+</body>
+</html>

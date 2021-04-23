@@ -7,31 +7,47 @@
 </head>
 
 <style type = "text/css">
-	.error{display:none;}
+
 </style>
 
 <body>
-	<form>
-		<div id='name-field'>
-				Name* <input type='text' name='name'>
-				<div class='error'>&nbsp;</div>
-		</div>
-		<div id='email-field'>
-				Email* <input type='text' name='email'>
-				<div class='error'>&nbsp;</div>
-		</div>
-		<input type='button' onclick = "get()" value = "submit">
-	</form>
-	<script language="javascript">
-			
-		function get(){
-			alert("get");
-			
-			
-			
-		}
-		
 
+	<?php
+
+	?>
+
+	<script language="javascript">
+		 students =[
+			{'name': 'joe',
+			'grade': 66,
+			'status': 'enrolled'
+			},
+			{
+			'name': 'jill',
+			'grade': 77,
+			'status': 'enrolled'
+			}
+		]
+		
+		s1 = JSON.stringify(students);
+		s2 = JSON.parse(s1);
+
+		s2[1].grade = 100;
+
+		data = JSON.stringify(s2);
+		document.write(data);
 	</script>
+
+db.movies.find({num_mflix_comments:{ $gt: 100 }})
+
+
+
+
 </body>
+
+
+
+
+
+
 </html>
